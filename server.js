@@ -8,6 +8,8 @@ const port = 8080;
 
 app.use(express.json())
 
+
+
  mongoose.connect(mongodburl)
  .then(()=>{
     console.log(` MongooDb is connected and port is ${port}`)
@@ -19,5 +21,6 @@ app.use(express.json())
 app.listen(port,()=>{
     console.log(` Server is running on ${port}`)
 })
-app.use("/user/api",userRoute)
+
 const userDataroute = require("./router/user")
+app.use("/user/api",userDataroute)

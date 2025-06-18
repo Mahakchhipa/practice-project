@@ -22,12 +22,12 @@ const userschema = new  mongoose.Schema({
         required:true,
          unique:true
     },
-    // age:{
-    //     typeof:Number,
-    //     required:true
-
-    // }
-
+    
 },{timestamp:true,versionKey:false})
 
 module.exports=mongoose.model("userdata",userschema)
+
+
+// ************this is second way to export this schema *********** 
+// const userdata = mongoose.model("userdata",userschema)
+// module.exports.userdata

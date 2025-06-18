@@ -1,9 +1,10 @@
-const express = require("express");
+// const express = require("express");
 // const mongoose = require("mongoose");
-const user = require("../model/user")
+const user = require("../model/usermodel")
 const bcrypt = require("bcryptjs")
 
 
+// createuser or signup ki api same hoti 
 
 exports.usercreate = async(req,res)=>{
      try{
@@ -26,9 +27,17 @@ exports.usercreate = async(req,res)=>{
     const dataunique = {
   name,email, phonenumber,Password:hash  
 }
+
+// exports.signup = async(req,res)=>{
+//   const data = req.body
+//   const newuser = new user(data)
+// await newuser.save()
+//    return res.status(200).send({message:" Your signup sucessfully"})
+// }
 console.log("this bcyrpt password genrate",dataunique)
     const mhk = new user(dataunique)
      await mhk.save()
+    //  31/32 line mongodb me data save krne ka kaam krte h fxn
     return res.status(201).send(mhk)
      }
      catch(error){

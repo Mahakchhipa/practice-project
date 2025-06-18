@@ -3,6 +3,8 @@ const express = require("express");
 const app = express()
 const cors = require('cors')
 require('dotenv').config()
+const userDataroute = require("./router/userroute")
+app.use("/user/api",userDataroute)
 
 
 const mongodburl = process.env.MONGOURL;
@@ -24,5 +26,3 @@ app.listen(port,()=>{
     console.log(` Server is running on ${port}`)
 })
 
-const userDataroute = require("./router/user")
-app.use("/user/api",userDataroute)

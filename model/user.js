@@ -1,33 +1,33 @@
 const mongoose = require("mongoose")
-const { stringify } = require("postcss")
-
 
 const userschema = new  mongoose.Schema({
     
-   
     name:{
-        typeof :String,
-        require:true,
+       type: String,
+      required:true
+        
     },
-
     email:{
-        typeof:String,
-        require:true,
+        type: String,
+        required:true,
+         unique:true
     },
-    password:{
-        typeof:String,
-        require:true,
+    Password:{
+        type: String,
+        required:true,
+       
     },
     phonenumber:{
-        typeof:Number,
-        require:true,
+        type:Number,
+        required:true,
+         unique:true
     },
-    age:{
-        typeof:Number,
-        require:true,
+    // age:{
+    //     typeof:Number,
+    //     required:true
 
-    }
+    // }
 
 },{timestamp:true,versionKey:false})
 
-module.exports= userschema.module("userfile",userschema)
+module.exports=mongoose.model("userdata",userschema)
